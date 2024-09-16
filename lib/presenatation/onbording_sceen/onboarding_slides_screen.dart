@@ -1,8 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:snappycart/core/service/app_color.dart';
 import 'package:snappycart/core/service/app_constans.dart';
+import 'package:snappycart/presenatation/auth/create_account_screen.dart';
 import 'package:snappycart/presenatation/onbording_sceen/getstart.dart';
 import 'package:snappycart/presenatation/onbording_sceen/image_index_indicator.dart';
 import 'package:snappycart/presenatation/onbording_sceen/onboarding_slides_cart.dart';
@@ -88,7 +88,7 @@ class _OnboardingSlidesScreenState extends State<OnboardingSlidesScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => OnboardingSlidesScreen(),
+                          builder: (context) => const CreateAccountScreen(),
                         ),
                       );
                     },

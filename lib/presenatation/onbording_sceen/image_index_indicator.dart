@@ -25,18 +25,6 @@ class ImageIndexIndicator extends StatelessWidget {
               width: 1.0, // Adjust the width as needed
             ),
           ),
-          // decoration: BoxDecoration(
-          //   shape: BoxShape.circle,
-          //   color: isActive ? Colors.blueAccent : Colors.grey,
-          //   boxShadow: [
-          //     if (isActive)
-          //      const BoxShadow(
-          //         color: Colors.blueAccent,
-          //         spreadRadius: 3,
-          //         blurRadius: 6,
-          //       ),
-          //   ],
-          // ),
           
         )
       ],
