@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "848250691130",
+    "project_id": "snappycart-73139",
+    "storage_bucket": "snappycart-73139.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:848250691130:android:4ade597b8a1ce60ed71f03",
+        "android_client_info": {
+          "package_name": "com.example.snappycart"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvKCuaxPpV9XPEVtZ4WTmjSZn8X_GTJts"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
