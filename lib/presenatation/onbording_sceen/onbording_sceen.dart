@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:snappycart/core/service/app_strings.dart';
+import 'package:snappycart/core/service/app_data/app_strings.dart';
 import 'package:snappycart/presenatation/onbording_sceen/getstart.dart';
 import 'package:snappycart/presenatation/onbording_sceen/onboarding_slides_screen.dart';
 

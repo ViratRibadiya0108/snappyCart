@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:snappycart/core/service/app_color.dart';
+import 'package:snappycart/core/service/app_data/app_color.dart';
 
 class ImageIndexIndicator extends StatelessWidget {
   const ImageIndexIndicator({super.key, required this.isActive});

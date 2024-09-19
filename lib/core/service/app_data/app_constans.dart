@@ -1,4 +1,4 @@
-import 'package:snappycart/core/service/app_strings.dart';
+import 'package:snappycart/core/service/app_data/app_strings.dart';
 import 'package:snappycart/domain/onbording/onbording_model.dart';
 
 class AppConstans {

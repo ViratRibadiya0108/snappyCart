@@ -1,33 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:snappycart/core/service/app_data/app_color.dart';
 import 'package:snappycart/core/service/app_data/app_image.dart';
-import 'package:snappycart/core/service/auth_services/firebase_auth.dart';
-import 'package:snappycart/presenatation/auth/login_account_screen.dart';
 import 'package:snappycart/presenatation/home_screen/home_screen.dart';
 
-class CreateAccountScreen extends StatefulWidget {
-  const CreateAccountScreen({super.key});
+class LoginAccountScreen extends StatefulWidget {
+  const LoginAccountScreen({super.key});
 
   @override
-  State<CreateAccountScreen> createState() => _CreateAccountScreenState();
+  State<LoginAccountScreen> createState() => _LoginAccountScreenState();
 }
 
-class _CreateAccountScreenState extends State<CreateAccountScreen> {
+class _LoginAccountScreenState extends State<LoginAccountScreen> {
     TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
-
-  Future<void> createAccount() async {
-    try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email.text,
-        password: password.text,
-      );
-      // Successfully created user
-    } catch (e) {
-      // Handle errors
-      print(e);
-    }
-  }
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -71,7 +56,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                             top: 20,
                             bottom: 20), // Padding inside the card
                         child: SizedBox(
-                          height: screenHeight * 0.65,
+                          height: screenHeight * 0.5,
                           width: screenWidth * 0.4,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -80,7 +65,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                               // Title
                               Center(
                                 child: Text(
-                                  "Register",
+                                  "Log In",
                                   style: TextStyle(
                                     fontSize: 28,
                                     fontWeight: FontWeight.bold,
@@ -92,8 +77,9 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
 
                               // Name Field
                               TextFormField(
+                                controller: email,
                                 decoration: InputDecoration(
-                                  labelText: 'Enter Name',
+                                  labelText: 'Email',
                                   labelStyle: TextStyle(
                                       color: AppColors.white), // Darker label
                                   enabledBorder: UnderlineInputBorder(
@@ -112,26 +98,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
 
                               // Email Field
                               TextFormField(
-                                 controller: email,
-                                decoration: InputDecoration(
-                                  labelText: 'Email',
-                                  labelStyle: TextStyle(color: AppColors.white),
-                                  enabledBorder: UnderlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: AppColors.ofWhite),
-                                  ),
-                                  focusedBorder: UnderlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: AppColors.white),
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 20),
-
-                              // Password Field
-                              TextFormField(
                                 controller: password,
-                                obscureText: true, // Hide the text for password
                                 decoration: InputDecoration(
                                   labelText: 'Password',
                                   labelStyle: TextStyle(color: AppColors.white),
@@ -145,26 +112,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                   ),
                                 ),
                               ),
-                              const SizedBox(height: 20),
-
-                              // Confirm Password Field
-                              TextFormField(
-                                obscureText: true, // Hide the text for password
-                                decoration: InputDecoration(
-                                  labelText: 'Confirm Password',
-                                  labelStyle: TextStyle(color: AppColors.white),
-                                  enabledBorder: UnderlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: AppColors.ofWhite),
-                                  ),
-                                  focusedBorder: UnderlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: AppColors.white),
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 30),
-
+ const SizedBox(height: 20),
                               // Submit Button
                               Center(
                                 child: ElevatedButton(
@@ -184,7 +132,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                     ),
                                   ),
                                   child: Text(
-                                    'Register',
+                                    'Log In',
                                     style: TextStyle(
                                       fontSize: 18,
                                       color: AppColors.black,
@@ -193,7 +141,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                 ),
                               ),
                               SizedBox(
-                                height: screenHeight * 0.01,
+                                height: screenHeight * 0.03,
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -201,22 +149,16 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                   Row(
                                     children: [
                                       Text(
-                                        'Already have account? ',
+                                        'Don’t have an account? ',
                                         style:
                                             TextStyle(color: AppColors.white),
                                       ),
                                       InkWell(
                                           onTap: () {
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      const LoginAccountScreen(),
-                                                ));
+                                            Navigator.pop(context);
                                           },
-                                          child: Text(' Log In',
-                                              style: TextStyle(
-                                                  color: AppColors.white,
+                                          child: Text(' Sign Up',
+                                              style: TextStyle(color: AppColors.white,
                                                   decoration:
                                                       TextDecoration.underline,
                                                   decorationColor:
@@ -246,7 +188,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Create \nyour account',
+                            'Log into \nyour account',
                             style: TextStyle(
                               color: AppColors.black,
                               fontSize: 30,
@@ -256,25 +198,8 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                             height: 20,
                           ),
                           TextFormField(
-                            obscureText: true, // Hide the text for password
-                            decoration: InputDecoration(
-                              labelText: 'Enter your name',
-                              labelStyle: TextStyle(color: AppColors.black),
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: AppColors.fullBlack),
-                              ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: AppColors.black),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 16,
-                          ),
-                          TextFormField(
                             controller: email,
-                            // Hide the text for password
+                             // Hide the text for password
                             decoration: InputDecoration(
                               labelText: 'Email',
                               labelStyle: TextStyle(color: AppColors.black),
@@ -306,28 +231,14 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                             ),
                           ),
                           const SizedBox(
-                            height: 16,
-                          ),
-                          TextFormField(
-                            obscureText: true, // Hide the text for password
-                            decoration: InputDecoration(
-                              labelText: 'Confirm Password',
-                              labelStyle: TextStyle(color: AppColors.black),
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: AppColors.fullBlack),
-                              ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: AppColors.black),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
                             height: 25,
                           ),
                           Center(
                             child: ElevatedButton(
-                              onPressed: createAccount,
+                              onPressed: () {
+                               Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const HomeScreen(),), (route)=>false);
+                                // Add your submit logic here
+                              },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor:
                                     AppColors.fullBlack, // Button color
@@ -340,7 +251,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                 ),
                               ),
                               child: Text(
-                                'Register',
+                                'Log In',
                                 style: TextStyle(
                                   fontSize: 18,
                                   color: AppColors.white,
@@ -357,19 +268,14 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                               Row(
                                 children: [
                                   Text(
-                                    'Already have account?',
+                                    'Don’t have an account?',
                                     style: TextStyle(color: AppColors.black),
                                   ),
                                   InkWell(
                                       onTap: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const LoginAccountScreen(),
-                                            ));
+                                        Navigator.pop(context);
                                       },
-                                      child: Text('Log In',
+                                      child: Text('Sign Up',
                                           style: TextStyle(
                                               decoration:
                                                   TextDecoration.underline,

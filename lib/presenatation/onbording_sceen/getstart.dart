@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:snappycart/core/service/app_color.dart';
+import 'package:snappycart/core/service/app_data/app_color.dart';
 // import 'package:your_app/core/service/app_color.dart'; // Adjust the path as necessary
 
 class GetStartedButton extends StatelessWidget {
@@ -36,7 +36,7 @@ class GetStartedButton extends StatelessWidget {
               ),
             )
           : Container(
-              height: screenHeight * 0.07,
+              height: screenHeight * 0.05,
               width: screenWidth * 0.4,
               decoration: BoxDecoration(
                 color: AppColors.fullBlack,
@@ -46,7 +46,7 @@ class GetStartedButton extends StatelessWidget {
               child: Center(
                 child: Text(
                   "Get Started",
-                  style: TextStyle(color: AppColors.white, fontSize: 18),
+                  style: TextStyle(color: AppColors.white, fontSize: 16),
                 ),
               ),
             ),
